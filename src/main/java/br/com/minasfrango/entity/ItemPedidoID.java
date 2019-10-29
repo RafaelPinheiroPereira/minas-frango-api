@@ -12,7 +12,7 @@ import lombok.Data;
 @Embeddable
 @Data
 
-public class ItemPedidoIDDTO implements Serializable {
+public class ItemPedidoID implements Serializable {
 
     private static final long serialVersionUID = -664886163053681970L;
 

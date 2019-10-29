@@ -15,7 +15,7 @@ import lombok.Data;
 @Entity
 @Table(name = "pedido")
 @Data
-public class PedidoDTO implements Serializable {
+public class Pedido implements Serializable {
 
     @Id
     @Column(name = "vencod", nullable = false)
@@ -42,6 +42,6 @@ public class PedidoDTO implements Serializable {
     private Date dataVencimento;
 
     @Transient
-    List<ItemPedidoDTO> itens;
+    List<ItemPedido> itens;
 
 }

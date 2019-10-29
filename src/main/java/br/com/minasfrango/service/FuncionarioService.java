@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.minasfrango.entity.Cliente;
 import br.com.minasfrango.entity.Funcionario;
-import br.com.minasfrango.entity.PedidoDTO;
+import br.com.minasfrango.entity.Pedido;
 import br.com.minasfrango.entity.RecebimentoDTO;
 import br.com.minasfrango.entity.Rota;
 import br.com.minasfrango.error.MyResourceNotFoundException;
@@ -47,10 +47,10 @@ public class FuncionarioService {
 
     public List<RecebimentoDTO> consultarRecebimentos(double id) {
 
-        List<PedidoDTO> pedidoDTOs = pedidoRepository.findAllRecebimentos(id);
+        List<Pedido> pedidos = pedidoRepository.findAllRecebimentos(id);
         List<RecebimentoDTO> recebimentoDTOs = new ArrayList<RecebimentoDTO>();
-        for (PedidoDTO pedidoDTO : pedidoDTOs) {
-            recebimentoDTOs.add(RecebimentoDTO.transformaEmRecebimentoDTO(pedidoDTO));
+        for (Pedido pedido : pedidos) {
+            recebimentoDTOs.add(RecebimentoDTO.transformaEmRecebimentoDTO(pedido));
         }
         return recebimentoDTOs;
     }

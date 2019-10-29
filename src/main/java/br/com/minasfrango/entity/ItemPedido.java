@@ -13,10 +13,10 @@ import lombok.Data;
 @Entity
 @Table(name = "itemPedido")
 @Data
-public class ItemPedidoDTO implements Serializable {
+public class ItemPedido implements Serializable {
 
     @EmbeddedId
-    ItemPedidoIDDTO chavesItemPedido;
+    ItemPedidoID chavesItemPedido;
 
     @Transient
     private long id;

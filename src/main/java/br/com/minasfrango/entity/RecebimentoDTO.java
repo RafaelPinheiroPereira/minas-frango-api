@@ -19,9 +19,9 @@ public class RecebimentoDTO implements Serializable {
     private double valorVenda;
     private Date dataVencimento;
 
-    public static RecebimentoDTO transformaEmRecebimentoDTO(PedidoDTO pedidoDTO) {
-        return new RecebimentoDTO(pedidoDTO.getCodigoFuncionario(), (long) pedidoDTO.getCodigoCliente(), pedidoDTO.getId(), pedidoDTO.getDataPedido(),
-            pedidoDTO.getValorTotal(), pedidoDTO.getDataVencimento());
+    public static RecebimentoDTO transformaEmRecebimentoDTO(Pedido pedido) {
+        return new RecebimentoDTO(pedido.getCodigoFuncionario(), (long) pedido.getCodigoCliente(), pedido.getId(), pedido.getDataPedido(),
+            pedido.getValorTotal(), pedido.getDataVencimento());
     }
 
 }

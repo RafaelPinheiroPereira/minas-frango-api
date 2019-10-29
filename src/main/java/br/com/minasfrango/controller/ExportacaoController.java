@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.minasfrango.entity.ListaPedidoDTO;
+import br.com.minasfrango.model.Exportacao;
 import br.com.minasfrango.service.ExportacaoService;
 import br.com.minasfrango.service.PedidoService;
+import br.com.minasfrango.service.RecebimentoService;
 
 @RestController
 @RequestMapping(path = "api/exportacoes")
@@ -21,12 +22,25 @@ public class ExportacaoController {
     @Autowired
     PedidoService pedidoService;
 
-    @PostMapping(value = "/pedidos")
-    public void exportarPedido(@RequestBody ListaPedidoDTO pedidos) {
+    @Autowired
+    RecebimentoService recebimentoService;
 
-        pedidos.getPedidosDTO().forEach(pedidoDTO -> {
-            pedidoService.salvar(pedidoDTO);
-        });
+    @PostMapping(value = "/pedidos")
+    public boolean exportarPedido(@RequestBody Exportacao exportacao) {
+
+        try {
+            exportacao.getListaPedido().getPedidos().forEach(pedido -> {
+                pedidoService.salvar(pedido);
+            });
+
+            exportacao.getRecebimentos().forEach(recebimento -> {
+                recebimentoService.salvar(recebimento);
+            });
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
 }

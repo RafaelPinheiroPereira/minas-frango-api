@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ListaPedidoDTO implements Serializable {
+public class ListaPedido implements Serializable {
 
-    List<PedidoDTO> pedidosDTO;
+    List<Pedido> pedidos;
 
 }

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -15,11 +15,15 @@ import lombok.Data;
 @Data
 public class Recebimento implements Serializable {
 
-    @EmbeddedId
-    RecebimentoID chavesRecebimento;
-
+    @Id
     @Column(name = "numrec")
     private long id;
+    @Column(name = "funcod")
+    private long idFuncionario;
+    @Column(name = "clicod")
+    private long idCliente;
+    @Column(name = "vencod")
+    private long idVenda;
 
     @Column(name = "datrec")
     private Date dataRecebimento;
@@ -28,5 +32,8 @@ public class Recebimento implements Serializable {
 
     @Column(name = "tprcod")
     private double tipoRecebimento;
+
+    @Column(name = "concod")
+    private String idConta;
 
 }
