@@ -28,6 +28,8 @@ public class ItemPedido implements Serializable {
     private double valorUnitario;
     @Column(name = "bicos")
     private double bicos;
+    @Column(name = "lote")
+    private String lote;
     @Transient
     private double valorTotal;
 
