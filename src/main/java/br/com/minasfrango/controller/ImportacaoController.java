@@ -14,6 +14,7 @@ import br.com.minasfrango.service.ContaService;
 import br.com.minasfrango.service.FuncionarioService;
 import br.com.minasfrango.service.PrecoService;
 import br.com.minasfrango.service.ProdutoService;
+import br.com.minasfrango.service.TipoRecebimentoService;
 import br.com.minasfrango.service.UnidadeService;
 
 @RestController
@@ -35,6 +36,9 @@ public class ImportacaoController {
     @Autowired
     ContaService contaService;
 
+    @Autowired
+    TipoRecebimentoService tipoRecebimentoService;
+
     @GetMapping("/funcionarios")
     @ResponseBody
     public ResponseEntity<Importacao> realizarImportacao(@RequestParam(value = "id") long id) {
@@ -47,7 +51,6 @@ public class ImportacaoController {
         importacao.setRecebimentosDTO(funcionarioService.consultarRecebimentos(id));
         importacao.setRotas(funcionarioService.consultarRotas(id));
         importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco());
-
         importacao.setContas(contaService.getContas());
 
         return ResponseEntity.status(HttpStatus.OK).body(importacao);

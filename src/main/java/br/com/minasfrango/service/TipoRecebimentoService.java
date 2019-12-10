@@ -14,8 +14,10 @@ public class TipoRecebimentoService {
     @Autowired
     TipoRecebimentoRepository tipoRecebimentoRepository;
 
-    public List<TipoRecebimento> consultarTodosRecebimentos() {
-        List<TipoRecebimento> tipos = tipoRecebimentoRepository.findAll();
-        return tipos;
+    public List<TipoRecebimento> consultarTiposRecebimento() {
+
+        List<TipoRecebimento> tiposRecebimento = tipoRecebimentoRepository.findAll();
+        return tiposRecebimento;
     }
+
 }
