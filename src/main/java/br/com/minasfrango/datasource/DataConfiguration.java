@@ -22,22 +22,12 @@ public class DataConfiguration {
         return dataSource;
     }
 
-    // @Bean
-    // public DataSource dataSource() {
-    // DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    // dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-    // dataSource.setUrl("jdbc:mysql://mobile_teste.mysql.dbaas.com.br/mobile_teste");
-    // dataSource.setUsername("mobile_teste");
-    // dataSource.setPassword("let152117");
-    // return dataSource;
-    // }
-
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.MYSQL);
         adapter.setShowSql(true);
-        adapter.setGenerateDdl(true);
+        // adapter.setGenerateDdl(true);
         adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
         adapter.setPrepareConnection(true);
         return adapter;

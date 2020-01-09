@@ -1,3 +1,4 @@
+br\com\minasfrango\entity\ClienteGrupo.class
 br\com\minasfrango\controller\ExportacaoController.class
 br\com\minasfrango\entity\Rota.class
 br\com\minasfrango\controller\HomeController.class
@@ -25,6 +26,7 @@ br\com\minasfrango\service\PrecoService.class
 br\com\minasfrango\error\MyResourceNotFoundException.class
 br\com\minasfrango\service\RecebimentoService.class
 br\com\minasfrango\entity\PrecoID.class
+br\com\minasfrango\service\ClienteGrupoService.class
 br\com\minasfrango\service\AutenticacaoService.class
 br\com\minasfrango\service\UnidadeService.class
 br\com\minasfrango\controller\AutenticacaoController.class
@@ -41,9 +43,11 @@ br\com\minasfrango\entity\Preco.class
 br\com\minasfrango\exceptions\ObjectError.class
 br\com\minasfrango\model\Importacao.class
 br\com\minasfrango\entity\Recebimento.class
+br\com\minasfrango\repository\ClienteGrupoRepository.class
 br\com\minasfrango\service\ItemPedidoService.class
 br\com\minasfrango\entity\Pedido.class
 br\com\minasfrango\repository\ContaRepository.class
+br\com\minasfrango\datasource\DataConfiguration.class
 br\com\minasfrango\entity\Unidade.class
 br\com\minasfrango\service\PedidoService.class
 br\com\minasfrango\entity\ClienteFuncionario.class

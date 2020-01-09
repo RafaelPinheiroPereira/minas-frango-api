@@ -32,9 +32,9 @@ public class FuncionarioService {
     @Autowired
     ClienteRepository clienteRepository;
 
-    public List<Cliente> consultarClientes(long id) {
+    public List<Cliente> consultarClientes() {
 
-        List<Cliente> clientes = clienteRepository.pesquisarClientesPorFuncionario(id);
+        List<Cliente> clientes = clienteRepository.pesquisarClientesPorRede();
         return clientes;
 
     }

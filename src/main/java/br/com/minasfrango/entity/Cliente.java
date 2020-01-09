@@ -33,8 +33,7 @@ public class Cliente implements Serializable {
     private String razaoSocial;
 
     @ManyToOne
-    @JoinColumn(name = "loccod", referencedColumnName = "loccod")
-
+    @JoinColumn(name = "loccod", referencedColumnName = "loccod", insertable = false, updatable = false)
     private Localidade localidade;
 
     @Column(name = "cliend", nullable = false)
@@ -59,4 +58,7 @@ public class Cliente implements Serializable {
 
     @Column(name = "clicpf", nullable = false)
     private String cpf;
+
+    @Column(name = "gpccod", nullable = false)
+    private double codigoClienteGrupo;
 }

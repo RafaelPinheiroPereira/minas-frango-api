@@ -13,7 +13,7 @@ import br.com.minasfrango.entity.PrecoID;
 public interface PrecoRepository extends JpaRepository<Preco, PrecoID> {
 
     @Query(value = "SELECT p.* FROM precos p "
-        + "GROUP BY procod,clicod,pround "
+
         + "ORDER BY prcdat DESC ",
         nativeQuery = true)
     public List<Preco> pesquisarPrecos();

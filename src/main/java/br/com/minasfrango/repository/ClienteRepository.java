@@ -11,10 +11,9 @@ import br.com.minasfrango.entity.Cliente;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Double> {
 
-    @Query(value = "SELECT c.* FROM clientes c,localidades l, rotas r "
-        + "WHERE c.loccod=l.loccod "
-        + "and l.rotcod=r.rotcod "
-        + "and r.funcod=?1",
+    @Query(value = "SELECT c.* FROM clientes c,clientegrupos cg "
+        + "WHERE c.gpccod=cg.gpccod ",
         nativeQuery = true)
-    public List<Cliente> pesquisarClientesPorFuncionario(long idFuncionario);
+    public List<Cliente> pesquisarClientesPorRede();
+
 }
