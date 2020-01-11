@@ -18,8 +18,11 @@ import lombok.Data;
 public class Pedido implements Serializable {
 
     @Id
-    @Column(name = "vencod", nullable = false)
+    @Column(name = "venseq", nullable = false)
     private long id;
+
+    @Column(name = "vencod", nullable = false)
+    private long idVenda;
 
     @Column(name = "vendat")
     private Date dataPedido;
@@ -40,6 +43,9 @@ public class Pedido implements Serializable {
     private double tipoRecebimento;
     @Column(name = "venven")
     private Date dataVencimento;
+
+    @Column(name = "venmtc")
+    private String motivoCancelamento;
 
     @Transient
     List<ItemPedido> itens;
