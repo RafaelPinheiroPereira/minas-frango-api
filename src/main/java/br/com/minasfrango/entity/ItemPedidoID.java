@@ -27,11 +27,13 @@ public class ItemPedidoID implements Serializable {
     private String idUnidade;
     @Column(name = "vendat", nullable = false)
     private Date dataVenda;
-    @Column(name = "venmae", nullable = false)
-    private String vendaMae;
+
     @Column(name = "ventip", nullable = false)
     private String tipoVenda;
     @Column(name = "nuccod", nullable = false)
     private String nucleoCodigo;
+
+    @Column(name = "venseq", nullable = false)
+    private double venSeq;
 
 }

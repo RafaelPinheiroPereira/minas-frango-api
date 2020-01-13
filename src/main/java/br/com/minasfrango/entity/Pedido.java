@@ -20,7 +20,7 @@ import lombok.Data;
 public class Pedido implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "venseq", nullable = false)
     private long id;
 
@@ -49,6 +49,9 @@ public class Pedido implements Serializable {
 
     @Column(name = "venmtc")
     private String motivoCancelamento;
+
+    @Column(name = "venmig", columnDefinition = "double default 0")
+    private Integer migrado;
 
     @Transient
     List<ItemPedido> itens;

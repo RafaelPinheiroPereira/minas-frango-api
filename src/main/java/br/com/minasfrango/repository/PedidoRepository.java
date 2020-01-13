@@ -16,4 +16,9 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
         nativeQuery = true)
     public List<Pedido> findAllRecebimentos(double idFuncionario);
 
+    @Query(value = "SELECT p.* FROM pedido p  "
+        + "WHERE  p.vencod=?1 and p.funcod=?2",
+        nativeQuery = true)
+    public Pedido consultarPedidoPorCodigoVendaCodigoFuncionario(long codigoVenda, long codigoFuncionario);
+
 }

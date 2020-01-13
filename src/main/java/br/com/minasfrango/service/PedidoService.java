@@ -17,11 +17,24 @@ public class PedidoService {
 
     public void salvar(Pedido pedido) {
 
-        pedidoRepository.save(pedido);
+        pedido.setMigrado(0);
+        Pedido pedidoSalvo = pedidoRepository.save(pedido);
+
         pedido.getItens().forEach(itemPedido -> {
+
+            itemPedido.getChavesItemPedido().setVenSeq(pedidoSalvo.getId());
+            itemPedido.getChavesItemPedido().setIdVenda(pedidoSalvo.getIdVenda());
+
             itemPedidoService.salvar(itemPedido);
 
         });
+
+    }
+
+    public Pedido consultarPedidoPorCodigoVendaCodigoFuncionario(Pedido pedido) {
+
+        return pedidoRepository.consultarPedidoPorCodigoVendaCodigoFuncionario(pedido.getIdVenda(),
+            pedido.getCodigoFuncionario());
 
     }
 
