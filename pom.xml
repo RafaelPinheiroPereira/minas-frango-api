@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-	<version>1.5.8.RELEASE</version>
+		<version>1.5.8.RELEASE</version>
 
 	</parent>
 
@@ -50,7 +50,7 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -68,7 +68,7 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		
+
 
 		<!-- Lombok -->
 		<dependency>
@@ -93,13 +93,13 @@
 	<!-- Spring Boot Maven Plugin -->
 	<build>
 		<plugins>
-			
+
 			<!-- START plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<!-- END plugin -->
 		</plugins>
 	</build>
