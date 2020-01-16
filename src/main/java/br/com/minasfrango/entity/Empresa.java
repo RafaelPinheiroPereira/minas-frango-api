@@ -1,11 +1,10 @@
 package br.com.minasfrango.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -32,22 +30,28 @@ public class Empresa implements Serializable {
     private static final long serialVersionUID = -6120725283884228689L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "empcod", nullable = false)
+    private long id;
     @Column(name = "empcnpj", nullable = false)
     private String cnpj;
     @Column(name = "empnom", nullable = false)
     private String nome;
     @Column(name = "empdti", nullable = false)
-    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
-    private LocalDateTime dataInicio;
+
+    private Date dataInicio;
 
     @Column(name = "empdtf", nullable = false)
-    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
-    private LocalDateTime dataFim;
 
-    @Transient
-    private boolean ativo;
+    private Date dataFim;
 
     @Transient
     private List<Nucleo> nucleos;
+
+    @Transient
+    private List<Dispositivo> dispositivos;
+
+    @Transient
+
+    private String ativo;
 
 }

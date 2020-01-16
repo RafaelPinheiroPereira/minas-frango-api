@@ -18,4 +18,7 @@ public class Preco {
     @Column(name = "prcval")
     private double valor;
 
+    @Column(name = "empcod", nullable = false)
+    private long idEmpresa;
+
 }

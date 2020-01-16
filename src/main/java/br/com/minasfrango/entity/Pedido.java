@@ -24,6 +24,9 @@ public class Pedido implements Serializable {
     @Column(name = "venseq", nullable = false)
     private long id;
 
+    @Column(name = "empcod", nullable = false)
+    private long idEmpresa;
+
     @Column(name = "vencod", nullable = false)
     private long idVenda;
 

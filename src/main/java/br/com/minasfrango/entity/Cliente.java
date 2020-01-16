@@ -27,6 +27,9 @@ public class Cliente implements Serializable {
     @Column(name = "clicod", nullable = false)
     private double id;
 
+    @Column(name = "empcod", nullable = false)
+    private long idEmpresa;
+
     @Column(name = "clinom", nullable = false)
     private String nome;
     @Column(name = "cliraz", nullable = false)

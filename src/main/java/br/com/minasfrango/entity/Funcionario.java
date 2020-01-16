@@ -42,6 +42,9 @@ public class Funcionario implements Serializable {
     @Column(name = "funtip", nullable = false)
     private String tipoFuncionario;
 
+    @Column(name = "empcod", nullable = false)
+    private long idEmpresa;
+
     public Funcionario(Long id, String senha) {
         super();
         this.id = id;

@@ -1,5 +1,6 @@
 package br.com.minasfrango.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,9 @@ public class NucleoService {
     @Autowired
     NucleoRepository nucleoRepository;
 
-    public List<Nucleo> pesquisarNucleoPorCNPJ(String cnpj) {
+    public List<Nucleo> pesquisarNucleosAtivos(String cnpj, Date dataAtual) {
         // TODO Auto-generated method stub
-        return nucleoRepository.pesquisarNucleoPorCNPJ(cnpj);
+        return nucleoRepository.pesquisarNucleoPorCNPJ(cnpj, dataAtual);
     }
 
 }

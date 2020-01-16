@@ -34,7 +34,9 @@ public class Nucleo implements Serializable {
     private String nome;
     @Column(name = "empcnpj", nullable = false)
     private String cnpj;
-    @Column(name = "empdtf", nullable = false)
+    @Column(name = "nucdti", nullable = false)
+    private Date dataInicio;
+    @Column(name = "nucdtf", nullable = false)
     private Date dataFim;
 
 }
