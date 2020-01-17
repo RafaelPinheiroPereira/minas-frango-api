@@ -1,5 +1,7 @@
 package br.com.minasfrango.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +15,15 @@ public class AutenticacaoService {
 
     public boolean autenticar(double id, String senha) {
 
-        Funcionario funcionario = funcionarioService.consultarPorId(id);
+        Optional<Funcionario> optionalFuncionario = funcionarioService.consultarPorId(id);
 
-        funcionarioService.obterSenha(funcionario, senha);
+        if (optionalFuncionario.isPresent()) {
+            funcionarioService.obterSenha(optionalFuncionario.get(), senha);
 
-        return funcionario.getSenha().equals(senha) ? true : false;
+        } else {
+            return false;
+        }
+        return optionalFuncionario.get().getSenha().equals(senha) ? true : false;
 
     }
 

@@ -55,9 +55,9 @@ public class FuncionarioService {
         return recebimentoDTOs;
     }
 
-    public Funcionario consultarPorId(double id) {
+    public Optional<Funcionario> consultarPorId(double id) {
 
-        return Optional.ofNullable(funcionarioRespository.findOne(id))
+        return Optional.ofNullable(funcionarioRespository.findById(id))
             .orElseThrow(() -> new MyResourceNotFoundException("Funcionario nao encontrado"));
 
     }

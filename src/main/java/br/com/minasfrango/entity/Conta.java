@@ -21,7 +21,7 @@ public class Conta implements Serializable {
 
     @Id
     @Column(name = "concod", nullable = false)
-    private long id;
+    private String id;
 
     @Column(name = "condes", nullable = false)
     private String descricao;

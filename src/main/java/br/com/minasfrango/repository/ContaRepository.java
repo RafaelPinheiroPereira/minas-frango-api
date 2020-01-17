@@ -2,12 +2,14 @@ package br.com.minasfrango.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import br.com.minasfrango.entity.Conta;
 
-public interface ContaRepository extends CrudRepository<Conta, Double> {
+@Repository
+public interface ContaRepository extends JpaRepository<Conta, Double> {
 
     @Query(
         value = "SELECT c.* FROM contas c order by c.concon desc",
