@@ -45,16 +45,17 @@ public class ImportacaoController {
 
     @GetMapping("/funcionarios")
     @ResponseBody
-    public ResponseEntity<Importacao> realizarImportacao(@RequestParam(value = "id") long id) {
+    public ResponseEntity<Importacao> realizarImportacao(@RequestParam(value = "id") long id, @RequestParam(value = "idEmpresa") long idEmpresa,
+        @RequestParam(value = "idNucleo") long idNucleo) {
 
         Importacao importacao = new Importacao();
 
-        importacao.setClientes(funcionarioService.consultarClientes());
-        importacao.setPrecos(precoService.consultarPrecos());
-        importacao.setProdutos(produtoService.consultarProdutos());
+        importacao.setClientes(funcionarioService.consultarClientes(idEmpresa));
+        importacao.setPrecos(precoService.consultarPrecos(idEmpresa, idNucleo));
+        importacao.setProdutos(produtoService.consultarProdutos(idEmpresa, idNucleo));
         importacao.setRecebimentosDTO(funcionarioService.consultarRecebimentos(id));
 
-        importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco());
+        importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco(idEmpresa, idNucleo));
         importacao.setContas(contaService.getContas());
         importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos());
 

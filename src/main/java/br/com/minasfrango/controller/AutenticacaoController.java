@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.minasfrango.entity.Funcionario;
 import br.com.minasfrango.service.AutenticacaoService;
 import br.com.minasfrango.service.FuncionarioService;
 
@@ -24,10 +25,18 @@ public class AutenticacaoController {
 
     @GetMapping(value = "/funcionarios")
     @ResponseBody
-    public ResponseEntity<?> autenticar(@RequestParam(value = "id") double id, @RequestParam(value = "senha") String senha) {
+    public ResponseEntity<?> autenticar(@RequestParam(value = "id") double id, @RequestParam(value = "senha") String senha,
+        @RequestParam(value = "idEmpresa") long idEmpresa) {
 
-        return autenticacaoService.autenticar(id, senha) ? new ResponseEntity<>(funcionarioService.consultarPorId(id), HttpStatus.OK)
-            : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        Funcionario funcionarioPesquisado = funcionarioService.pesquisarPorCodigoDoFuncionarioECodigoDaEmpresa(id, idEmpresa);
+
+        if (autenticacaoService.isSenhaValida(funcionarioPesquisado, senha)) {
+            long maximoCodigoDeVenda = funcionarioService.pesquisarCodigoMaximoDeVendaDoFuncionario(funcionarioPesquisado);
+            funcionarioPesquisado.setMaxIdVenda(maximoCodigoDeVenda);
+
+            return new ResponseEntity<>(funcionarioPesquisado, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 
     }
 

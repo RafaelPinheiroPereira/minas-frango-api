@@ -21,4 +21,7 @@ public class Preco {
     @Column(name = "empcod", nullable = false)
     private long idEmpresa;
 
+    @Column(name = "nuccod", nullable = false)
+    private long idNucleo;
+
 }

@@ -29,4 +29,6 @@ public class Unidade implements Serializable {
     @Column(name = "UNDPAD")
     private String unidadePadrao;
 
+    @Column(name = "empcod")
+    private long idEmpresa;
 }

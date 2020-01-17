@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -44,6 +45,9 @@ public class Funcionario implements Serializable {
 
     @Column(name = "empcod", nullable = false)
     private long idEmpresa;
+
+    @Transient
+    private long maxIdVenda;
 
     public Funcionario(Long id, String senha) {
         super();

@@ -12,12 +12,8 @@ import br.com.minasfrango.entity.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Double> {
 
     @Query(
-        value = "SELECT p.* FROM produtos p,precos pr, unidades un "
-            + "WHERE  p.procod=pr.procod "
-            + "and p.pround =pr.pround   "
-            + "and un.procod=p.procod"
-            + " group by un.undcod",
+        value = "SELECT p.* FROM produtos p where p.empcod=?1 and p.nuccod=?2",
         nativeQuery = true)
-    public List<Produto> pesquisarProdutos();
+    public List<Produto> pesquisarProdutos(long idEmpresa, long idNucleo);
 
 }

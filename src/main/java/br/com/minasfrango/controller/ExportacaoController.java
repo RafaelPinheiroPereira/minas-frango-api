@@ -32,6 +32,8 @@ public class ExportacaoController {
     public boolean exportarPedido(@RequestBody Exportacao exportacao) {
 
         try {
+            System.out.println("exportacao:" + exportacao);
+
             exportacao.getListaPedido().getPedidos().forEach(pedido -> {
                 Optional<Pedido> optionalPedidoToSave = Optional.ofNullable(pedidoService.consultarPedidoPorCodigoVendaCodigoFuncionario(pedido));
 
@@ -44,6 +46,7 @@ public class ExportacaoController {
 
                     if (optionalCodigoMigrado.isPresent()) {
                         if (optionalCodigoMigrado.get().intValue() == 0) {
+
                             pedidoService.salvar(pedido);
                         }
                     } else {

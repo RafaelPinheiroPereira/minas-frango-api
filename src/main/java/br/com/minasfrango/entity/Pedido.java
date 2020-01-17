@@ -56,6 +56,9 @@ public class Pedido implements Serializable {
     @Column(name = "venmig", columnDefinition = "double default 0")
     private Integer migrado;
 
+    @Column(name = "nuccod")
+    private long idNucleo;
+
     @Transient
     List<ItemPedido> itens;
 

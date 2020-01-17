@@ -23,4 +23,10 @@ public class Produto {
     @Column(name = "proqtd")
     private double quantidade;
 
+    @Column(name = "empcod")
+    private long idEmpresa;
+
+    @Column(name = "nuccod")
+    private long idNucleo;
+
 }

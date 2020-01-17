@@ -14,9 +14,9 @@ public class UnidadeService {
     @Autowired
     UnidadeRepository unidadeRepository;
 
-    public List<Unidade> consultarUnidadePorProdutoEPreco() {
+    public List<Unidade> consultarUnidadePorProdutoEPreco(long idEmpresa, long idNucleo) {
 
-        List<Unidade> unidades = unidadeRepository.consultarUnidadePorProdutoEPreco();
+        List<Unidade> unidades = unidadeRepository.consultarUnidadePorProdutoEPreco(idEmpresa, idNucleo);
         return unidades;
     }
 }

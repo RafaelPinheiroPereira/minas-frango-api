@@ -19,6 +19,10 @@ public class Localidade {
     private double id;
     @Column(name = "locnom")
     private String nome;
+
+    @Column(name = "empcod")
+    private long idEmpresa;
+
     @ManyToOne
     @JoinColumn(name = "rotcod", referencedColumnName = "rotcod")
     private Rota rota;

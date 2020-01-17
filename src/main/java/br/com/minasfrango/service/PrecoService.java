@@ -14,9 +14,10 @@ public class PrecoService {
     @Autowired
     PrecoRepository precoRepository;
 
-    public List<Preco> consultarPrecos() {
+    public List<Preco> consultarPrecos(long idEmpresa, long idNucleo) {
 
-        List<Preco> precos = precoRepository.pesquisarPrecos();
+        List<Preco> precos = precoRepository.pesquisarPrecos(idEmpresa, idNucleo);
         return precos;
     }
+
 }

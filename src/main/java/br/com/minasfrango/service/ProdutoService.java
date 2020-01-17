@@ -14,9 +14,9 @@ public class ProdutoService {
     @Autowired
     ProdutoRepository produtoRepository;
 
-    public List<Produto> consultarProdutos() {
+    public List<Produto> consultarProdutos(long idEmpresa, long idNucleo) {
 
-        List<Produto> produtos = produtoRepository.pesquisarProdutos();
+        List<Produto> produtos = produtoRepository.pesquisarProdutos(idEmpresa, idNucleo);
         return produtos;
     }
 

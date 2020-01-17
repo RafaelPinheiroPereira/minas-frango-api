@@ -45,24 +45,24 @@ public class ConfiguracaoController {
             Optional<List<Nucleo>> optionalNucleos = Optional.ofNullable(configuracaoService.pesquisarNucleosAtivos(cnpj, dataAtual));
             Optional<List<Dispositivo>> optionalDispositivos = Optional.ofNullable(configuracaoService.pesquisarDispositivosAtivos(mac, dataAtual));
 
-            if (optionalNucleos.isPresent()) {
+            if (optionalNucleos.isPresent() && optionalDispositivos.get().size() > 0) {
                 empresa.setNucleos(optionalNucleos.get());
 
             } else {
                 empresa.setNucleos(new ArrayList<Nucleo>());
             }
 
-            if (optionalDispositivos.isPresent()) {
+            if (optionalDispositivos.isPresent() && optionalDispositivos.get().size() > 0) {
 
                 optionalDispositivos.get().forEach(dispositivo -> {
                     dispositivo.setAtivo("true");
                 });
                 empresa.setDispositivos(optionalDispositivos.get());
+                empresa.setAtivo("true");
+                return new ResponseEntity<>(new Configuracao(empresa), HttpStatus.OK);
             } else {
-                empresa.setDispositivos(new ArrayList<>());
+                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
-            empresa.setAtivo("true");
-            return new ResponseEntity<>(new Configuracao(empresa), HttpStatus.OK);
 
         } else {
             // acesso nao autorizado

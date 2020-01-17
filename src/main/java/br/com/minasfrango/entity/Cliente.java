@@ -64,4 +64,5 @@ public class Cliente implements Serializable {
 
     @Column(name = "gpccod", nullable = false)
     private double codigoClienteGrupo;
+
 }

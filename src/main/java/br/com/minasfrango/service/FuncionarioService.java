@@ -32,11 +32,15 @@ public class FuncionarioService {
     @Autowired
     ClienteRepository clienteRepository;
 
-    public List<Cliente> consultarClientes() {
+    public List<Cliente> consultarClientes(long idEmpresa) {
 
-        List<Cliente> clientes = clienteRepository.pesquisarClientesPorRede();
+        List<Cliente> clientes = clienteRepository.pesquisarClientesPorRede(idEmpresa);
         return clientes;
 
+    }
+
+    public long pesquisarCodigoMaximoDeVendaDoFuncionario(Funcionario funcionario) {
+        return funcionarioRespository.pequisarMaximoIdVenda(funcionario.getId(), funcionario.getIdEmpresa());
     }
 
     public List<Rota> consultarRotas(double id) {
@@ -55,14 +59,14 @@ public class FuncionarioService {
         return recebimentoDTOs;
     }
 
-    public Optional<Funcionario> consultarPorId(double id) {
+    public Funcionario pesquisarPorCodigoDoFuncionarioECodigoDaEmpresa(double id, long idEmpresa) {
 
-        return Optional.ofNullable(funcionarioRespository.findById(id))
+        return Optional.ofNullable(funcionarioRespository.pesquisarPorCodigoDoFuncionarioECodigoDaEmpresa(id, idEmpresa))
             .orElseThrow(() -> new MyResourceNotFoundException("Funcionario nao encontrado"));
 
     }
 
-    public String obterSenha(Funcionario funcionario, String senha) {
+    public String obterSenha(Funcionario funcionario) {
         return Optional.ofNullable(funcionario.getSenha()).orElseThrow(() -> new MyResourceNotFoundException("Funcionario sem senha"));
     }
 

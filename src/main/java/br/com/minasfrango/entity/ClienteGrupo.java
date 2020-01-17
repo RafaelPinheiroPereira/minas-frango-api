@@ -27,4 +27,7 @@ public class ClienteGrupo implements Serializable {
     @Column(name = "gpcnom", nullable = false)
     private String nome;
 
+    @Column(name = "empcod", nullable = false)
+    private long idEmpresa;
+
 }
