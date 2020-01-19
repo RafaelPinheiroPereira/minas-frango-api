@@ -53,11 +53,13 @@ public class ImportacaoController {
         importacao.setClientes(funcionarioService.consultarClientes(idEmpresa));
         importacao.setPrecos(precoService.consultarPrecos(idEmpresa, idNucleo));
         importacao.setProdutos(produtoService.consultarProdutos(idEmpresa, idNucleo));
-        importacao.setRecebimentosDTO(funcionarioService.consultarRecebimentos(id));
+        importacao.setRecebimentosDTO(funcionarioService.consultarRecebimentos(id, idNucleo, idEmpresa));
 
         importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco(idEmpresa, idNucleo));
         importacao.setContas(contaService.getContas());
         importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos());
+
+        System.out.println("qtd de recebimentos: " + importacao.getRecebimentosDTO().size());
 
         return ResponseEntity.status(HttpStatus.OK).body(importacao);
 

@@ -9,7 +9,7 @@ import br.com.minasfrango.entity.Funcionario;
 @Repository
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Double> {
 
-    @Query(value = "SELECT max(p.vencod) FROM funcionarios f, pedido p "
+    @Query(value = "SELECT IFNULL(max(p.vencod),0) FROM funcionarios f, pedido p "
         + "WHERE  f.funcod=?1  and f.empcod=?2 and f.funcod=p.funcod ",
         nativeQuery = true)
     long pequisarMaximoIdVenda(double id, long idEmpresa);

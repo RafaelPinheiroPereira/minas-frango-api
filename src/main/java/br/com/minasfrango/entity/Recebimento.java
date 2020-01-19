@@ -44,4 +44,7 @@ public class Recebimento implements Serializable {
     @Column(name = "concod")
     private String idConta;
 
+    @Column(name = "nuccod")
+    private long idNucleo;
+
 }

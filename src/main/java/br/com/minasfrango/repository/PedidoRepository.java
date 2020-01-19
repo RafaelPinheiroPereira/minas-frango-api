@@ -11,6 +11,7 @@ import br.com.minasfrango.entity.Pedido;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
+    // nucleo + empcod
     @Query(value = "SELECT p.* FROM pedido p , clientes c "
         + "WHERE  p.clicod=c.clicod and p.ventot >p.venamo and p.funcod=?1",
         nativeQuery = true)

@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 
 import br.com.minasfrango.entity.Cliente;
 import br.com.minasfrango.entity.Funcionario;
-import br.com.minasfrango.entity.Pedido;
 import br.com.minasfrango.entity.RecebimentoDTO;
 import br.com.minasfrango.entity.Rota;
+import br.com.minasfrango.entity.Venda;
 import br.com.minasfrango.error.MyResourceNotFoundException;
 import br.com.minasfrango.repository.ClienteRepository;
 import br.com.minasfrango.repository.FuncionarioRepository;
 import br.com.minasfrango.repository.PedidoRepository;
+import br.com.minasfrango.repository.RecebimentoRepository;
 import br.com.minasfrango.repository.RotaRepository;
 
 @Service
@@ -30,7 +31,13 @@ public class FuncionarioService {
     PedidoRepository pedidoRepository;
 
     @Autowired
+    RecebimentoRepository recebimentoRepository;
+
+    @Autowired
     ClienteRepository clienteRepository;
+
+    @Autowired
+    VendaService vendaService;
 
     public List<Cliente> consultarClientes(long idEmpresa) {
 
@@ -49,12 +56,12 @@ public class FuncionarioService {
 
     }
 
-    public List<RecebimentoDTO> consultarRecebimentos(double id) {
+    public List<RecebimentoDTO> consultarRecebimentos(long id, long idNucleo, long idEmpresa) {
 
-        List<Pedido> pedidos = pedidoRepository.findAllRecebimentos(id);
+        List<Venda> vendas = vendaService.pesquisarRecebimentosDoFuncionario(id, idNucleo, idEmpresa);
         List<RecebimentoDTO> recebimentoDTOs = new ArrayList<RecebimentoDTO>();
-        for (Pedido pedido : pedidos) {
-            recebimentoDTOs.add(RecebimentoDTO.transformaEmRecebimentoDTO(pedido));
+        for (Venda venda : vendas) {
+            recebimentoDTOs.add(RecebimentoDTO.transformaEmRecebimentoDTO(venda));
         }
         return recebimentoDTOs;
     }
