@@ -56,7 +56,7 @@ public class ImportacaoController {
         importacao.setRecebimentosDTO(funcionarioService.consultarRecebimentos(id, idNucleo, idEmpresa));
 
         importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco(idEmpresa, idNucleo));
-        importacao.setContas(contaService.getContas());
+        importacao.setContas(contaService.getContas(idEmpresa, idNucleo));
         importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos());
 
         System.out.println("qtd de recebimentos: " + importacao.getRecebimentosDTO().size());

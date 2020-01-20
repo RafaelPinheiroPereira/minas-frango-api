@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.minasfrango.entity.Pedido;
 import br.com.minasfrango.repository.PedidoRepository;
+import br.com.minasfrango.repository.RecebimentoRepository;
 
 @Service
 public class PedidoService {
@@ -14,6 +15,9 @@ public class PedidoService {
 
     @Autowired
     ItemPedidoService itemPedidoService;
+
+    @Autowired
+    RecebimentoRepository recebimentoRepository;
 
     public void salvar(Pedido pedido) {
 

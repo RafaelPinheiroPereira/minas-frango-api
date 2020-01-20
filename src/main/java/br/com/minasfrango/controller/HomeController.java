@@ -1,7 +1,5 @@
 package br.com.minasfrango.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.minasfrango.entity.Venda;
-import br.com.minasfrango.repository.VendaRepository;
+import br.com.minasfrango.entity.Recebimento;
+import br.com.minasfrango.repository.RecebimentoRepository;
 
 @RestController
 @RequestMapping(path = "/api")
 public class HomeController {
 
     @Autowired
-    VendaRepository vendaRepository;
+    RecebimentoRepository recebimentoRepository;
 
     @GetMapping()
     public String verificarStatusAplicacao() {
@@ -26,10 +24,10 @@ public class HomeController {
         return " Api Minas Frango";
     }
 
-    @GetMapping("/vendas")
+    @GetMapping("/recebimento")
     @ResponseBody
-    public ResponseEntity<List<Venda>> getAllVendas() {
-        return ResponseEntity.status(HttpStatus.OK).body(vendaRepository.pesquisarTodosRecebimentosDoFuncionario(38, 4, 1));
+    public ResponseEntity<Recebimento> getAllVendas() {
+        return ResponseEntity.status(HttpStatus.OK).body(recebimentoRepository.consultarReciboPorCodigoVendaCodigoFuncionario(761, 1));
     }
 
 }

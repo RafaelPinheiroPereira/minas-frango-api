@@ -12,7 +12,7 @@ import br.com.minasfrango.entity.Conta;
 public interface ContaRepository extends JpaRepository<Conta, Double> {
 
     @Query(
-        value = "SELECT c.* FROM contas c order by c.concon desc",
+        value = "SELECT c.* FROM contas c where c.empcod=?1 and c.nuccod=?2 order by c.concon desc",
         nativeQuery = true)
-    public List<Conta> pesquisarContas();
+    public List<Conta> pesquisarContas(long idEmpresa, long idNucleo);
 }

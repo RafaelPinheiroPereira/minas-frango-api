@@ -14,9 +14,9 @@ public class ContaService {
     @Autowired
     ContaRepository contaRepository;
 
-    public List<Conta> getContas() {
+    public List<Conta> getContas(long idEmpresa, long idNucleo) {
 
-        return contaRepository.pesquisarContas();
+        return contaRepository.pesquisarContas(idEmpresa, idNucleo);
     }
 
 }

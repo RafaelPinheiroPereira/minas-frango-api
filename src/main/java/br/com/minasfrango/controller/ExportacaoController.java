@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.minasfrango.entity.Pedido;
+import br.com.minasfrango.entity.Recebimento;
 import br.com.minasfrango.model.Exportacao;
 import br.com.minasfrango.service.ExportacaoService;
 import br.com.minasfrango.service.PedidoService;
@@ -32,9 +33,9 @@ public class ExportacaoController {
     public boolean exportarPedido(@RequestBody Exportacao exportacao) {
 
         try {
-            System.out.println("exportacao:" + exportacao);
 
             exportacao.getListaPedido().getPedidos().forEach(pedido -> {
+
                 Optional<Pedido> optionalPedidoToSave = Optional.ofNullable(pedidoService.consultarPedidoPorCodigoVendaCodigoFuncionario(pedido));
 
                 if (optionalPedidoToSave.isPresent()) {
@@ -44,13 +45,9 @@ public class ExportacaoController {
 
                     Optional<Integer> optionalCodigoMigrado = Optional.ofNullable(optionalPedidoToSave.get().getMigrado());
 
-                    if (optionalCodigoMigrado.isPresent()) {
-                        if (optionalCodigoMigrado.get().intValue() == 0) {
-
-                            pedidoService.salvar(pedido);
-                        }
-                    } else {
+                    if (optionalCodigoMigrado.isPresent() && optionalCodigoMigrado.get().intValue() == 0) {
                         pedidoService.salvar(pedido);
+
                     }
 
                 }
@@ -61,7 +58,25 @@ public class ExportacaoController {
             });
 
             exportacao.getRecebimentos().forEach(recebimento -> {
-                recebimentoService.salvar(recebimento);
+
+                Optional<Recebimento> optionalRecebimentoToSave = Optional
+                    .ofNullable(recebimentoService.consultarRecebimentoPorCodigoVendaCodigoFuncionario(recebimento));
+                if (optionalRecebimentoToSave.isPresent()) {
+
+                    /** Realizar update */
+                    recebimento.setId(optionalRecebimentoToSave.get().getId());
+
+                    Optional<Integer> optionalCodigoMigrado = Optional.ofNullable(optionalRecebimentoToSave.get().getMigrado());
+
+                    if (optionalCodigoMigrado.isPresent() && optionalCodigoMigrado.get().intValue() == 0) {
+                        recebimentoService.salvar(recebimento);
+
+                    }
+
+                } else {
+                    recebimento.setMigrado(0);
+                    recebimentoService.salvar(recebimento);
+                }
             });
             return true;
         } catch (Exception e) {

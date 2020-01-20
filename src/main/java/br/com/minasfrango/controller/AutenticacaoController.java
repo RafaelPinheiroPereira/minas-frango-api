@@ -32,6 +32,7 @@ public class AutenticacaoController {
 
         if (autenticacaoService.isSenhaValida(funcionarioPesquisado, senha)) {
             long maximoCodigoDeVenda = funcionarioService.pesquisarCodigoMaximoDeVendaDoFuncionario(funcionarioPesquisado);
+
             funcionarioPesquisado.setMaxIdVenda(maximoCodigoDeVenda);
 
             return new ResponseEntity<>(funcionarioPesquisado, HttpStatus.OK);

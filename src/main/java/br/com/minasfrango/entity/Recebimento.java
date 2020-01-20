@@ -47,4 +47,7 @@ public class Recebimento implements Serializable {
     @Column(name = "nuccod")
     private long idNucleo;
 
+    @Column(name = "recmig", columnDefinition = "double default 0")
+    private Integer migrado;
+
 }
