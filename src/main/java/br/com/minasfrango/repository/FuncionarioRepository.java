@@ -19,4 +19,9 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Doubl
         nativeQuery = true)
     public Funcionario pesquisarPorCodigoDoFuncionarioECodigoDaEmpresa(double id, long idEmpresa);
 
+    @Query(value = "SELECT IFNULL(max(r.numrec),0) FROM funcionarios f, recibos r "
+        + "WHERE  f.funcod=?1  and f.empcod=?2 and f.funcod=r.funcod ",
+        nativeQuery = true)
+    long pesquisarMaximoIdRecibo(double id, long idEmpresa);
+
 }

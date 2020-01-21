@@ -77,4 +77,9 @@ public class FuncionarioService {
         return Optional.ofNullable(funcionario.getSenha()).orElseThrow(() -> new MyResourceNotFoundException("Funcionario sem senha"));
     }
 
+    public long pesquisarCodigoMaximoDeReciboDoFuncionario(Funcionario funcionarioPesquisado) {
+        // TODO Auto-generated method stub
+        return funcionarioRespository.pesquisarMaximoIdRecibo(funcionarioPesquisado.getId(), funcionarioPesquisado.getIdEmpresa());
+    }
+
 }
