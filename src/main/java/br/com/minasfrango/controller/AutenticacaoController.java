@@ -34,6 +34,7 @@ public class AutenticacaoController {
             long maximoCodigoDeVenda = funcionarioService.pesquisarCodigoMaximoDeVendaDoFuncionario(funcionarioPesquisado);
             long maximoCodigoDeRecebimento = funcionarioService.pesquisarCodigoMaximoDeReciboDoFuncionario(funcionarioPesquisado);
             funcionarioPesquisado.setMaxIdVenda(maximoCodigoDeVenda);
+            funcionarioPesquisado.setMaxIdRecibo(maximoCodigoDeRecebimento);
 
             return new ResponseEntity<>(funcionarioPesquisado, HttpStatus.OK);
         }

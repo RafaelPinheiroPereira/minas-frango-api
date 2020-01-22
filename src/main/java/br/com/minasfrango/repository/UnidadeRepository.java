@@ -15,13 +15,9 @@ import br.com.minasfrango.entity.UnidadeProdutoID;
 @Repository
 public interface UnidadeRepository extends JpaRepository<Unidade, UnidadeProdutoID> {
 
-    @Query(value = "SELECT un.* FROM produtos p,precos pr, unidades un "
+    @Query(value = "SELECT un.* FROM produtos p, unidades un "
         + "WHERE  un.empcod=?1 "
-        + " and p.procod=pr.procod "
-        + "and p.pround =pr.pround   "
-        + "and un.procod=p.procod"
-        + " "
-
+        + "and un.procod=p.procod  "
         + " group by un.undcod",
         nativeQuery = true)
     public List<Unidade> consultarUnidadePorProdutoEPreco(long idEmpresa, long idNucleo);

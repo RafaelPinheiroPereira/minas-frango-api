@@ -18,7 +18,8 @@ public class RecebimentoService {
 
     public Recebimento consultarRecebimentoPorCodigoVendaCodigoFuncionario(Recebimento recebimento) {
         // TODO Auto-generated method stub
-        return recebimentoRepository.consultarReciboPorCodigoVendaCodigoFuncionario(recebimento.getIdRecibo(), recebimento.getIdFuncionario());
+        return recebimentoRepository.consultarReciboPorCodigoVendaCodigoFuncionario(recebimento.getIdVenda(), recebimento.getIdFuncionario(),
+            recebimento.getIdRecibo());
     }
 
 }

@@ -49,6 +49,9 @@ public class Funcionario implements Serializable {
     @Transient
     private long maxIdVenda;
 
+    @Transient
+    private long maxIdRecibo;
+
     public Funcionario(Long id, String senha) {
         super();
         this.id = id;

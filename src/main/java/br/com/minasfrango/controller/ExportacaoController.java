@@ -69,6 +69,7 @@ public class ExportacaoController {
                     Optional<Integer> optionalCodigoMigrado = Optional.ofNullable(optionalRecebimentoToSave.get().getMigrado());
 
                     if (optionalCodigoMigrado.isPresent() && optionalCodigoMigrado.get().intValue() == 0) {
+                        recebimento.setMigrado(0);
                         recebimentoService.salvar(recebimento);
 
                     }
