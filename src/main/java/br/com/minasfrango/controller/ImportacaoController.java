@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.minasfrango.model.Importacao;
 import br.com.minasfrango.service.ClienteGrupoService;
+import br.com.minasfrango.service.ConfiguracaoGoogleDriveService;
 import br.com.minasfrango.service.ContaService;
 import br.com.minasfrango.service.FuncionarioService;
 import br.com.minasfrango.service.PrecoService;
@@ -43,6 +44,9 @@ public class ImportacaoController {
     @Autowired
     ClienteGrupoService clienteGrupoService;
 
+    @Autowired
+    ConfiguracaoGoogleDriveService configuracaoGoogleDriveService;
+
     @GetMapping("/funcionarios")
     @ResponseBody
     public ResponseEntity<Importacao> realizarImportacao(@RequestParam(value = "id") long id, @RequestParam(value = "idEmpresa") long idEmpresa,
@@ -58,6 +62,8 @@ public class ImportacaoController {
         importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco(idEmpresa, idNucleo));
         importacao.setContas(contaService.getContas(idEmpresa, idNucleo));
         importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos());
+
+        importacao.setConfiguracaoGoogleDrive(configuracaoGoogleDriveService.conultarConfiguracaoDoFuncionario(id, idEmpresa));
 
         System.out.println("qtd de recebimentos: " + importacao.getRecebimentosDTO().size());
 

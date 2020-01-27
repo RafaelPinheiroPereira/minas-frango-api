@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.minasfrango.entity.Pedido;
 import br.com.minasfrango.entity.Recebimento;
 import br.com.minasfrango.model.Exportacao;
+import br.com.minasfrango.service.ConfiguracaoGoogleDriveService;
 import br.com.minasfrango.service.ExportacaoService;
 import br.com.minasfrango.service.PedidoService;
 import br.com.minasfrango.service.RecebimentoService;
@@ -28,6 +29,10 @@ public class ExportacaoController {
 
     @Autowired
     RecebimentoService recebimentoService;
+
+    @Autowired
+
+    ConfiguracaoGoogleDriveService configuracaoGoogleDriveService;
 
     @PostMapping(value = "/pedidos")
     public boolean exportarPedido(@RequestBody Exportacao exportacao) {
@@ -79,6 +84,9 @@ public class ExportacaoController {
                     recebimentoService.salvar(recebimento);
                 }
             });
+
+            configuracaoGoogleDriveService.salvarConfiguracao(exportacao.getConfiguracaoGoogleDrive());
+
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
