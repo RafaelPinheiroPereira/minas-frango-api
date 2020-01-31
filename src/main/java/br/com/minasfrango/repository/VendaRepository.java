@@ -12,8 +12,8 @@ import br.com.minasfrango.entity.Venda;
 public interface VendaRepository extends JpaRepository<Venda, Long> {
 
     @Query(value = "SELECT v.* FROM vendas v  "
-        + "WHERE  v.ventot >v.venamo and v.funcod=?1 and v.nuccod=?2 and v.empcod=?3",
+        + "WHERE  v.ventot >v.venamo and  v.nuccod=?1 and v.empcod=?2",
         nativeQuery = true)
-    public List<Venda> pesquisarTodosRecebimentosDoFuncionario(long idFuncionario, long idNucleo, long idEmpresa);
+    public List<Venda> pesquisarTodosRecebimentosDoFuncionario( long idNucleo, long idEmpresa);
 
 }

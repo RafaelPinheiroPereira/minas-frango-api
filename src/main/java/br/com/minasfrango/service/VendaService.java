@@ -16,7 +16,7 @@ public class VendaService {
 
     public List<Venda> pesquisarRecebimentosDoFuncionario(long idFuncionario, long idNucleo, long idEmpresa) {
 
-        return vendaRepository.pesquisarTodosRecebimentosDoFuncionario(idFuncionario, idNucleo, idEmpresa);
+        return vendaRepository.pesquisarTodosRecebimentosDoFuncionario( idNucleo, idEmpresa);
 
     }
 
