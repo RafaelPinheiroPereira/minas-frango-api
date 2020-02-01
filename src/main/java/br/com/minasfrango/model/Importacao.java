@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.minasfrango.entity.Cliente;
 import br.com.minasfrango.entity.ClienteGrupo;
-import br.com.minasfrango.entity.ConfiguracaoGoogleDrive;
 import br.com.minasfrango.entity.Conta;
 import br.com.minasfrango.entity.Preco;
 import br.com.minasfrango.entity.Produto;
@@ -25,7 +24,5 @@ public class Importacao {
     List<RecebimentoDTO> recebimentosDTO;
     List<Conta> contas;
     List<ClienteGrupo> clientesGrupos;
-
-    ConfiguracaoGoogleDrive configuracaoGoogleDrive;
 
 }

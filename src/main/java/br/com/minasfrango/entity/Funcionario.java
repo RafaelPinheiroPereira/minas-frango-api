@@ -43,6 +43,15 @@ public class Funcionario implements Serializable {
     @Column(name = "funtip", nullable = false)
     private String tipoFuncionario;
 
+    @Column(name = "str_id_pasta_funcionario")
+    private String idPastaFuncionario;
+
+    @Column(name = "str_id_pasta_vendas")
+    private String idPastaVendas;
+
+    @Column(name = "str_id_pasta_pagamentos")
+    private String idPastaPagamentos;
+
     @Column(name = "empcod", nullable = false)
     private long idEmpresa;
 
