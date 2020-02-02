@@ -5,7 +5,7 @@
 	<groupId>com.minasfrango</groupId>
 	<artifactId>ws-minas-frango</artifactId>
 
-	<version>2.2.4-SNAPSHOT</version>
+	<version>2.2.5-SNAPSHOT</version>
 
 
 	<!-- Define the parent pom -->

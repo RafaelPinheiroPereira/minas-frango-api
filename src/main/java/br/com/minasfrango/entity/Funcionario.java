@@ -55,6 +55,9 @@ public class Funcionario implements Serializable {
     @Column(name = "empcod", nullable = false)
     private long idEmpresa;
 
+    @Column(name = "funalt", nullable = false)
+    private String alteraPreco;
+
     @Transient
     private long maxIdVenda;
 
