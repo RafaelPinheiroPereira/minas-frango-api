@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.minasfrango</groupId>
 	<artifactId>ws-minas-frango</artifactId>
+	<packaging>jar</packaging>
 
 	<version>2.2.6-SNAPSHOT</version>
 
@@ -130,5 +131,6 @@
 			<!-- END plugin -->
 		</plugins>
 	</build>
-	<packaging>war</packaging>
+
+	
 </project>

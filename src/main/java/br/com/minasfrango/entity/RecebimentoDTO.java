@@ -18,7 +18,6 @@ public class RecebimentoDTO implements Serializable {
     private Date dataVenda;
     private double valorVenda;
     private Date dataVencimento;
-
     private long idPedidoBloco;
     private long idEmpresa;
 
@@ -26,7 +25,7 @@ public class RecebimentoDTO implements Serializable {
 
         // nuccod , empc e vencod colocar e venpend
         return new RecebimentoDTO(venda.getCodigoFuncionario(), venda.getCodigoCliente(), venda.getIdVenda(), venda.getDataVenda(),
-            venda.getValorTotal()-venda.getValorAmortizado(), venda.getDataVencimento(), venda.getIdPedidoBloco(), venda.getIdEmpresa());
+            venda.getValorTotal() - venda.getValorAmortizado(), venda.getDataVencimento(), venda.getIdPedidoBloco(), venda.getIdEmpresa());
     }
 
 }

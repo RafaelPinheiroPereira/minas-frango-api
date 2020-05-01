@@ -59,8 +59,6 @@ public class ImportacaoController {
         importacao.setContas(contaService.getContas(idEmpresa, idNucleo));
         importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos());
 
-        System.out.println("qtd de recebimentos: " + importacao.getRecebimentosDTO().size());
-
         return ResponseEntity.status(HttpStatus.OK).body(importacao);
 
     }

@@ -1,5 +1,6 @@
 package br.com.minasfrango.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -80,6 +81,11 @@ public class FuncionarioService {
     public long pesquisarCodigoMaximoDeReciboDoFuncionario(Funcionario funcionarioPesquisado) {
         // TODO Auto-generated method stub
         return funcionarioRespository.pesquisarMaximoIdRecibo(funcionarioPesquisado.getId(), funcionarioPesquisado.getIdEmpresa());
+    }
+
+    public void atualizarDataUltimaSincronizacao(double id, LocalDateTime dataUltimaSincronizacao) {
+        funcionarioRespository.atualizarDataUltimaSincronizacao(id, dataUltimaSincronizacao);
+
     }
 
 }

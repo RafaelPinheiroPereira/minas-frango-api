@@ -53,7 +53,7 @@ public class Venda implements Serializable {
 
     @Column(name = "venped")
     private long idPedidoBloco;
-    
+
     @Column(name = "vencod")
     private long idVenda;
 

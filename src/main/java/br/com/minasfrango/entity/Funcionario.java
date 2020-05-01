@@ -1,6 +1,7 @@
 package br.com.minasfrango.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,6 +58,9 @@ public class Funcionario implements Serializable {
 
     @Column(name = "funalt", nullable = false)
     private String alteraPreco;
+
+    @Column(name = "FUNDTSYNC", columnDefinition = " TIMESTAMP")
+    private LocalDateTime dataUltimaSincronizacao;
 
     @Transient
     private long maxIdVenda;

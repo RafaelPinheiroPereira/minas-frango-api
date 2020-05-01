@@ -57,6 +57,8 @@ public class ExportacaoController {
 
             });
 
+            System.out.println(exportacao);
+
             exportacao.getRecebimentos().forEach(recebimento -> {
 
                 Optional<Recebimento> optionalRecebimentoToSave = Optional
