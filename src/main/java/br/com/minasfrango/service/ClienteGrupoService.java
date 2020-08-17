@@ -14,9 +14,9 @@ public class ClienteGrupoService {
     @Autowired
     ClienteGrupoRepository clienteGrupoRepository;
 
-    public List<ClienteGrupo> getClientesGrupos() {
+    public List<ClienteGrupo> getClientesGrupos(long idEmpresa) {
 
-        return clienteGrupoRepository.findAll();
+        return clienteGrupoRepository.pesquisarClienteGrupo(idEmpresa);
     }
 
 }

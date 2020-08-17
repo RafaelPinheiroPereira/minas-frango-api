@@ -38,5 +38,11 @@ public class Nucleo implements Serializable {
     private Date dataInicio;
     @Column(name = "nucdtf", nullable = false)
     private Date dataFim;
+    @Column(name = "empnom", nullable = false)
+    private String nomeEmpresa;
+    @Column(name = "empfone", nullable = false)
+    private String telefone;
+    @Column(name = "empend", nullable = false)
+    private String endereco;
 
 }

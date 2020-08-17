@@ -57,7 +57,7 @@ public class ImportacaoController {
 
         importacao.setUnidades(unidadeService.consultarUnidadePorProdutoEPreco(idEmpresa, idNucleo));
         importacao.setContas(contaService.getContas(idEmpresa, idNucleo));
-        importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos());
+        importacao.setClientesGrupos(clienteGrupoService.getClientesGrupos(idEmpresa));
 
         return ResponseEntity.status(HttpStatus.OK).body(importacao);
 

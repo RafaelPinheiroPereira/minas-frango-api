@@ -11,22 +11,18 @@ import org.springframework.stereotype.Service;
 import br.com.minasfrango.entity.Cliente;
 import br.com.minasfrango.entity.Funcionario;
 import br.com.minasfrango.entity.RecebimentoDTO;
-import br.com.minasfrango.entity.Rota;
 import br.com.minasfrango.entity.Venda;
 import br.com.minasfrango.error.MyResourceNotFoundException;
 import br.com.minasfrango.repository.ClienteRepository;
 import br.com.minasfrango.repository.FuncionarioRepository;
 import br.com.minasfrango.repository.PedidoRepository;
 import br.com.minasfrango.repository.RecebimentoRepository;
-import br.com.minasfrango.repository.RotaRepository;
 
 @Service
 public class FuncionarioService {
 
     @Autowired
     FuncionarioRepository funcionarioRespository;
-    @Autowired
-    RotaRepository rotaRepository;
 
     @Autowired
     PedidoRepository pedidoRepository;
@@ -49,12 +45,6 @@ public class FuncionarioService {
 
     public long pesquisarCodigoMaximoDeVendaDoFuncionario(Funcionario funcionario) {
         return funcionarioRespository.pequisarMaximoIdVenda(funcionario.getId(), funcionario.getIdEmpresa());
-    }
-
-    public List<Rota> consultarRotas(double id) {
-        List<Rota> rotas = rotaRepository.pesquisarRotaPorFuncionario(id);
-        return rotas;
-
     }
 
     public List<RecebimentoDTO> consultarRecebimentos(long id, long idNucleo, long idEmpresa) {

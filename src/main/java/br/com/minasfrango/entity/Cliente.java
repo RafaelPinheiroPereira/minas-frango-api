@@ -5,8 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -35,9 +33,8 @@ public class Cliente implements Serializable {
     @Column(name = "cliraz", nullable = false)
     private String razaoSocial;
 
-    @ManyToOne
-    @JoinColumn(name = "loccod", referencedColumnName = "loccod", insertable = false, updatable = false)
-    private Localidade localidade;
+    // @ManyToOne
+    // private Localidade localidade;
 
     @Column(name = "cliend", nullable = false)
     private String endereco;

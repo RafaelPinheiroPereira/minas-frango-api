@@ -17,8 +17,7 @@ public interface UnidadeRepository extends JpaRepository<Unidade, UnidadeProduto
 
     @Query(value = "SELECT un.* FROM produtos p, unidades un "
         + "WHERE  un.empcod=?1 "
-        + "and un.procod=p.procod  "
-        + " group by un.undcod",
+        + "and un.procod=p.procod  ",
         nativeQuery = true)
     public List<Unidade> consultarUnidadePorProdutoEPreco(long idEmpresa, long idNucleo);
 

@@ -18,8 +18,6 @@ public class Produto {
     @Column(name = "pronom")
     private String nome;
 
-    @Column(name = "pround")
-    private String unidade;
     @Column(name = "proqtd")
     private double quantidade;
 
